@@ -11,6 +11,27 @@ flights %>%
   filter(is.na(dep_time))
 ```
 
+``` r
+flights %>%
+  filter(is.na(dep_time)) %>%
+  summarise(dep_time, dep_delay, arr_time, arr_delay, air_time)
+```
+
+    ## # A tibble: 8,255 x 5
+    ##    dep_time dep_delay arr_time arr_delay air_time
+    ##       <int>     <dbl>    <int>     <dbl>    <dbl>
+    ##  1       NA        NA       NA        NA       NA
+    ##  2       NA        NA       NA        NA       NA
+    ##  3       NA        NA       NA        NA       NA
+    ##  4       NA        NA       NA        NA       NA
+    ##  5       NA        NA       NA        NA       NA
+    ##  6       NA        NA       NA        NA       NA
+    ##  7       NA        NA       NA        NA       NA
+    ##  8       NA        NA       NA        NA       NA
+    ##  9       NA        NA       NA        NA       NA
+    ## 10       NA        NA       NA        NA       NA
+    ## # ... with 8,245 more rows
+
 Here we can see that 8,255 flights are missing a `dep_time` value. Other
 missing variables include `dep_delay`, `arr_time`, `arr_delay`, and
 `air_time`. These rows may represent any flights that were canceled.
@@ -58,7 +79,7 @@ flights %>%
   ggplot(aes(x = average_delay, y = proportion_canceled)) + geom_point()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 There seems to be a positive correlation between the `average_delay` and
 `proportion_cancelled`. That is, the larger the departure delay, the
