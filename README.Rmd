@@ -6,6 +6,7 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(nycflights13)
 library(ggplot2)
@@ -13,10 +14,16 @@ library(ggplot2)
 
 1. How many flights have a missing dep_time? What other variables are missing?
 What might these rows represent?
-```{r}
+```{r, results="hide"}
 flights %>%
   filter(is.na(dep_time))
 ```
+```{r}
+flights %>%
+  filter(is.na(dep_time)) %>%
+  summarise(dep_time, dep_delay, arr_time, arr_delay, air_time)
+```
+
 Here we can see that 8,255 flights are missing a `dep_time` value. Other missing
 variables include `dep_delay`, `arr_time`, `arr_delay`, and `air_time`. These rows
 may represent any flights that were canceled.
