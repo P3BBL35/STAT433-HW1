@@ -1,0 +1,11 @@
+---
+title: "HW1"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(nycflights13)
+library(ggplot2)
+```
+
