@@ -2,9 +2,9 @@
 title: "HW1"
 author: "Andrew Li"
 date: "2022-09-24"
-output: github_document
+output: html_document
 ---
-
+https://github.com/P3BBL35/STAT433-HW1
 ```{r setup, include=FALSE}
 library(dplyr)
 library(nycflights13)
